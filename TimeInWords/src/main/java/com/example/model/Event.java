@@ -1,5 +1,7 @@
 package com.example.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,26 +25,21 @@ public class Event {
 	private String location;
 	
 	@Column(name="Date")
-	private String date;
-	
-	@Column(name="Time")
-	private String time;
+	private Date date;
 	
 	public Event() {}
 
-	public Event(String name, String location, String date, String time) {
+	public Event(String name, String location, Date date) {
 		this.name = name;
 		this.location = location;
 		this.date = date;
-		this.time = time;
 	}
 
-	public Event(int eventId, String name, String location, String date, String time) {
+	public Event(int eventId, String name, String location, Date date) {
 		this.eventId = eventId;
 		this.name = name;
 		this.location = location;
 		this.date = date;
-		this.time = time;
 	}
 
 	public int getEventId() {
@@ -69,25 +66,16 @@ public class Event {
 		this.location = location;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
-	}
-
-	public String getTime() {
-		return time;
-	}
-
-	public void setTime(String time) {
-		this.time = time;
 	}
 
 	@Override
 	public String toString() {
-		return "Event [eventId=" + eventId + ", name=" + name + ", location=" + location + ", date=" + date + ", time="
-				+ time + "]";
+		return "Event [eventId=" + eventId + ", name=" + name + ", location=" + location + ", date=" + date + "]";
 	}
 }
